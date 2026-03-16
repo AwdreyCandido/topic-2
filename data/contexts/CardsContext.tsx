@@ -26,7 +26,7 @@ interface CardContextType {
 
 const CardContext = createContext({} as CardContextType);
 
-export const CardProvider = ({ children }: { children: JSX.Element }) => {
+export const CardProvider = ({ children }: { children: React.ReactNode }) => {
   const [deckList, setDeckList] = useState<Subject[]>(sampleDeck);
   const [editorOpen, setEditorOpen] = useState(false);
   const [editingFlashcard, setEditingFlashcard] = useState<Flashcard | null>(null);

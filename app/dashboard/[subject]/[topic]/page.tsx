@@ -12,7 +12,8 @@ interface TopicPageProps {
 
 export default function TopicPage({ params }: TopicPageProps) {
   const { subject: subjectPath, topic: topicPath } = use(params);
-  const { getSubjectByPath, getTopicByPath, openEditor, openNewCardEditor } = useCards();
+  const { getSubjectByPath, getTopicByPath, openEditor, openNewCardEditor } =
+    useCards();
 
   const subject = getSubjectByPath(subjectPath);
   const topic = getTopicByPath(subjectPath, topicPath);
@@ -39,7 +40,9 @@ export default function TopicPage({ params }: TopicPageProps) {
         <div>
           <h1 className="text-[3.2rem] font-semibold">{topic.name}</h1>
           {topic.description && (
-            <p className="text-[1.4rem] text-[#525252] mt-1">{topic.description}</p>
+            <p className="text-[1.4rem] text-[#525252] mt-1">
+              {topic.description}
+            </p>
           )}
         </div>
         <button
@@ -59,7 +62,9 @@ export default function TopicPage({ params }: TopicPageProps) {
       {/* Stats */}
       <div className="flex items-center gap-6 mb-8 p-4 bg-[#f8f8f8] rounded-[0.8rem] border border-[#e8e8e8]">
         <div className="text-center">
-          <p className="text-subheading font-bold text-[#323232]">{topic.flashcards.length}</p>
+          <p className="text-subheading font-bold text-[#323232]">
+            {topic.flashcards.length}
+          </p>
           <p className="text-small text-[#525252]">Flashcards</p>
         </div>
         <div className="w-px h-8 bg-[#e0e0e0]" />
@@ -77,7 +82,8 @@ export default function TopicPage({ params }: TopicPageProps) {
             <FlashCard
               key={flashcard.id}
               flashcard={flashcard}
-              onClick={() => openEditor(flashcard)}
+              onClick={() => {}}
+              onEditCard={() => openEditor(flashcard)}
             />
           ))}
         </div>

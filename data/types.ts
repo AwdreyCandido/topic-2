@@ -29,7 +29,7 @@ export interface Subject {
   updatedAt: Date;
 }
 
-export interface Tag {
+export interface ITag {
   id: number;
   name: string;
   color: string;

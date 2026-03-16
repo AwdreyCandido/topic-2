@@ -1,17 +1,21 @@
 "use client";
 
 import { useCards } from "@/data/contexts/CardsContext";
+import { useSubjects } from "@/data/contexts/SubjectsContext";
 import SubjectCard from "@/src/components/custom/subject-card/SubjectCard";
 import { HiMiniPlus } from "react-icons/hi2";
 
 export default function Dashboard() {
   const { deckList } = useCards();
+  const { openEditor } = useSubjects();
+
 
   return (
     <div className="pb-4">
       <div className="flex items-center justify-between mb-12">
         <h1 className="text-[3.2rem] font-semibold">All Subjects</h1>
         <button
+          onClick={openEditor}
           className="
             flex items-center gap-2 px-5 py-3
             bg-[#323232] text-white rounded-[0.8rem]

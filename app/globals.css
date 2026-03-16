@@ -8,6 +8,7 @@ html {
   --background: #e2e2e2;
   --foreground: #292929;
 
+  --text-tiny: 1rem;
   --text-small: 1.2rem;
   --text-base: 1.4rem;
   --text-button: 1.6rem;
@@ -45,6 +46,7 @@ html {
   --font-instrument: var(--font-instrument-sans);
 
 
+  --text-tiny: var(--text-tiny);
   --text-small: var(--text-small);
   --text-base: var(--text-base);
   --text-button: var(--text-button);

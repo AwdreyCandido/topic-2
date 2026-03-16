@@ -59,10 +59,10 @@ export default function FlashcardEditorPanel() {
       <div
         className={`
           fixed top-0 right-0 h-full z-50
-          w-full max-w-[48rem] bg-white
+          w-full max-w-[60rem] bg-white
           shadow-[-8px_0_32px_rgba(0,0,0,0.12)]
           flex flex-col
-          transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)]
+          transition-transform duration-200 ease-[cubic-bezier(0.32,0.72,0,1)]
           ${editorOpen ? "translate-x-0" : "translate-x-full"}
         `}
       >

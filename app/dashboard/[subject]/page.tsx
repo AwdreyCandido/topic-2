@@ -5,6 +5,7 @@ import { useCards } from "@/data/contexts/CardsContext";
 import TopicCard from "@/src/components/custom/topic-card/TopicCard";
 import Breadcrumb from "@/src/components/custom/breadcrumb/Breadcrumb";
 import { HiMiniPlus } from "react-icons/hi2";
+import { useSubjects } from "@/data/contexts/SubjectsContext";
 
 interface SubjectPageProps {
   params: Promise<{ subject: string }>;
@@ -42,6 +43,7 @@ export default function SubjectPage({ params }: SubjectPageProps) {
           )}
         </div>
         <button
+          onClick={()=>{}}
           className="
             flex items-center gap-2 px-5 py-3
             bg-[#323232] text-white rounded-[0.8rem]

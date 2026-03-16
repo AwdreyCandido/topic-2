@@ -1,4 +1,4 @@
-import { Subject } from "./types";
+import { Subject, ITag } from "./types";
 
 export const sampleDeck: Subject[] = [
   {
@@ -164,5 +164,29 @@ export const sampleDeck: Subject[] = [
     ],
     createdAt: new Date("2025-04-06T10:00:00Z"),
     updatedAt: new Date("2025-04-06T10:00:00Z"),
+  },
+];
+
+
+export const topicTags: ITag[] = [
+  {
+    id: 1,
+    name: "javascript",
+    color: "#FFBF00",
+  },
+  {
+    id: 2,
+    name: "react",
+    color: "#3AA2FF",
+  },
+  {
+    id: 3,
+    name: "oop",
+    color: "#3AA2FF",
+  },
+  {
+    id: 4,
+    name: "methods",
+    color: "#F84AA7",
   },
 ];
