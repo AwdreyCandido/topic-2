@@ -189,8 +189,8 @@ export default function FlashcardEditorPanel() {
               disabled={!question.trim()}
               className="
                 flex items-center gap-2 px-6 py-3 rounded-[0.8rem]
-                text-[1.3rem] font-semibold text-white bg-[#323232]
-                hover:bg-[#525252]
+                text-[1.3rem] font-semibold text-white bg-dark-gray
+                hover:bg-gray
                 disabled:opacity-40 disabled:cursor-not-allowed
                 transition-all duration-200
               "

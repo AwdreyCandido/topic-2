@@ -25,12 +25,14 @@ const Card: React.FC<CardProps> = ({ flashcard, onClick, onEditCard }) => {
         select-none
       "
     >
-      <p className="text-[1.3rem] font-semibold text-[#323232] leading-snug line-clamp-3">
-        {flashcard.question}
-      </p>
+      <div>
+        <p className="text-[1.3rem] font-semibold text-[#323232] leading-snug line-clamp-3 border-b border-[#e0e0e0] pb-4">
+          {flashcard.question}
+        </p>
 
-      <div className="mt-3 pt-3 border-t border-[#e0e0e0]">
-        <Tag tagsId={flashcard.tags} />
+        <div className="mt-3">
+          <Tag tagsId={flashcard.tags} />
+        </div>
       </div>
       {/* {flashcard.answer && (
         <div className="mt-3 pt-3 border-t border-[#e0e0e0]">

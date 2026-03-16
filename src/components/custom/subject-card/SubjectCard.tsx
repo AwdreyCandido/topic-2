@@ -10,6 +10,7 @@ import {
 } from "react-icons/hi2";
 import { Subject } from "@/data/types";
 import { PiCardsThreeFill } from "react-icons/pi";
+import { useTopics } from "@/data/contexts/TopicsContext";
 
 interface SubjectCardProps {
   subject: Subject;
@@ -20,10 +21,12 @@ const SubjectCard: React.FC<SubjectCardProps> = ({ subject }) => {
     (acc, topic) => acc + topic.flashcards.length,
     0
   );
+  const { selectSubjectId } = useTopics();
 
   return (
     <Link href={`/dashboard/${subject.path}`}>
       <div
+        onClick={() => selectSubjectId(subject.id)}
         className="
           pop-in flex flex-col justify-between gap-4
           bg-[#f1f1f1] rounded-[0.8rem] p-4

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { HiEllipsisVertical, HiMiniFolder, HiMiniPlus } from "react-icons/hi2";
 import { Subject, Topic } from "@/data/types";
+import { useTopics } from "@/data/contexts/TopicsContext";
 
 interface TopicCardProps {
   topic: Subject | Topic;

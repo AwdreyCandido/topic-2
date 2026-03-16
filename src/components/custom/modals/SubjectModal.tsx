@@ -6,7 +6,7 @@ import { HiXMark } from "react-icons/hi2";
 import { useCards } from "@/data/contexts/CardsContext";
 import { Subject } from "@/data/types";
 
-export default function SubjectEditorPanel() {
+export default function SubjectModal() {
   const { editorOpen, closeEditor } = useSubjects();
   const { addSubject } = useCards();
 

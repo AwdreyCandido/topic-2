@@ -49,9 +49,9 @@ export default function TopicPage({ params }: TopicPageProps) {
           onClick={() => openNewCardEditor(topic.id)}
           className="
             flex items-center gap-2 px-5 py-3
-            bg-[#323232] text-white rounded-[0.8rem]
+            bg-dark-gray text-white rounded-[0.8rem]
             text-[1.6rem] font-medium
-            hover:bg-[#525252] transition-colors duration-200
+            hover:bg-gray transition-colors duration-200
           "
         >
           <HiMiniPlus className="text-[1.8rem]" />
