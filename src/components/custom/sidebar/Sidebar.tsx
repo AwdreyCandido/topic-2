@@ -11,6 +11,7 @@ import {
   HiMiniHome,
   HiBars3,
   HiXMark,
+  HiUser,
 } from "react-icons/hi2";
 
 export default function Sidebar() {
@@ -21,7 +22,7 @@ export default function Sidebar() {
 
   const toggleSubject = (id: number) => {
     setOpenSubjects((prev) =>
-      prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
+      prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id],
     );
   };
 
@@ -137,6 +138,22 @@ export default function Sidebar() {
           );
         })} */}
       </nav>
+
+      <div className="flex items-center justify-center p-4 h-20">
+        <Link
+          href="/profile"
+        >
+          <button
+            className="
+            flex items-center justify-center h-12 w-12 rounded-full
+            text-[2rem] text-[#525252]
+            hover:bg-[#f1f1f1] transition-colors duration-200
+          "
+          >
+            <HiUser />
+          </button>
+        </Link>
+      </div>
     </aside>
   );
 }
