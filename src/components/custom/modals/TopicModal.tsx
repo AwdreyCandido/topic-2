@@ -1,11 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { useSubjects } from "@/data/contexts/SubjectsContext";
 import { HiXMark } from "react-icons/hi2";
 import { useCards } from "@/data/contexts/CardsContext";
-import { Subject, Topic } from "@/data/types";
 import { useTopics } from "@/data/contexts/TopicsContext";
+import { Topic } from "@/data/types";
 
 export default function TopicsModal() {
   const { topicModalOpen, closeTopicModal, subjectId } = useTopics();

@@ -4,9 +4,7 @@ import Link from "next/link";
 import {
   HiEllipsisVertical,
   HiFolderOpen,
-  HiMiniFolder,
   HiMiniPlus,
-  HiOutlineFolderOpen,
 } from "react-icons/hi2";
 import { Subject } from "@/data/types";
 import { PiCardsThreeFill } from "react-icons/pi";

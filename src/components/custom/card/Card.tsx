@@ -11,7 +11,7 @@ interface CardProps {
   onEditCard: () => void;
 }
 
-const Card: React.FC<CardProps> = ({ flashcard, onClick, onEditCard }) => {
+const Card: React.FC<CardProps> = ({ flashcard, onEditCard }) => {
   return (
     <div
       // onClick={onClick}

@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import TextInput from "@/src/ui/inputs/TextInput";
 import { useRouter } from "next/navigation";
 

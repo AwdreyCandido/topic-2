@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Figtree, Instrument_Sans } from "next/font/google";
+import { Instrument_Sans } from "next/font/google";
 import "./globals.css";
 
-const figtreeSans = Figtree({
-  variable: "--font-figtree-sans",
-  subsets: ["latin"],
-  display: "swap",
-});
+// const figtreeSans = Figtree({
+//   variable: "--font-figtree-sans",
+//   subsets: ["latin"],
+//   display: "swap",
+// });
 
 const instrumentSans = Instrument_Sans({
   variable: "--font-instrument-sans",

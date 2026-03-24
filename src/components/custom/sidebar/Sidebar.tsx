@@ -2,12 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
 import { useSidebar } from "@/data/contexts/SidebarContext";
-import { useCards } from "@/data/contexts/CardsContext";
 import {
-  HiChevronRight,
-  HiMiniBookOpen,
   HiMiniHome,
   HiBars3,
   HiXMark,
@@ -16,15 +12,14 @@ import {
 
 export default function Sidebar() {
   const { isExpanded, toggleSidebar } = useSidebar();
-  const { deckList } = useCards();
   const pathname = usePathname();
-  const [openSubjects, setOpenSubjects] = useState<number[]>([]);
+  // const [openSubjects, setOpenSubjects] = useState<number[]>([]);
 
-  const toggleSubject = (id: number) => {
-    setOpenSubjects((prev) =>
-      prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id],
-    );
-  };
+  // const toggleSubject = (id: number) => {
+  //   setOpenSubjects((prev) =>
+  //     prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id],
+  //   );
+  // };
 
   return (
     <aside

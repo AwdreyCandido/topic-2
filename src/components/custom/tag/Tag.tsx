@@ -1,5 +1,4 @@
 import { topicTags } from "@/data/data";
-import { ITag } from "@/data/types";
 import React from "react";
 
 interface TagProps {

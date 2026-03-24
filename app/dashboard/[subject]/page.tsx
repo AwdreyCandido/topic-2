@@ -5,7 +5,6 @@ import { useCards } from "@/data/contexts/CardsContext";
 import TopicCard from "@/src/components/custom/topic-card/TopicCard";
 import Breadcrumb from "@/src/components/custom/breadcrumb/Breadcrumb";
 import { HiMiniPlus } from "react-icons/hi2";
-import { useSubjects } from "@/data/contexts/SubjectsContext";
 import { useTopics } from "@/data/contexts/TopicsContext";
 
 interface SubjectPageProps {
