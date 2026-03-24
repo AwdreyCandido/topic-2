@@ -1,15 +1,15 @@
 export interface Flashcard {
-  id: number;
+  id: number | string;
   question: string;
   answer: string;
   topicId: number;
-  tags: number[];
+  tags: number[] | string[];
   createdAt: Date;
   updatedAt: Date;
 }
 
 export interface Topic {
-  id: number;
+  id: number | string;
   name: string;
   path: string;
   description?: string;
@@ -20,7 +20,7 @@ export interface Topic {
 }
 
 export interface Subject {
-  id: number;
+  id: number | string;
   name: string;
   path: string;
   description?: string;
@@ -30,7 +30,7 @@ export interface Subject {
 }
 
 export interface ITag {
-  id: number;
+  id: number | string;
   name: string;
   color: string;
 }
