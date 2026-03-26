@@ -1,8 +1,16 @@
 "use client";
 
-import { JSX, createContext, useContext, useState, useCallback } from "react";
+import {
+  JSX,
+  createContext,
+  useContext,
+  useState,
+  useCallback,
+  useEffect,
+} from "react";
 import { sampleDeck } from "../data";
 import { Subject, Topic, Flashcard } from "../types";
+import { loadDeck } from "@/lib/loadDeck";
 
 interface CardContextType {
   deckList: Subject[];
@@ -17,23 +25,31 @@ interface CardContextType {
   deleteFlashcard: (flashcardId: number, topicId: number) => void;
   addTopic: (
     subjectId: number,
-    topic: Omit<Topic, "id" | "createdAt" | "updatedAt" | "flashcards">
+    topic: Omit<Topic, "id" | "createdAt" | "updatedAt" | "flashcards">,
   ) => void;
   addSubject: (
-    subject: Omit<Subject, "id" | "createdAt" | "updatedAt" | "topics">
+    subject: Omit<Subject, "id" | "createdAt" | "updatedAt" | "topics">,
   ) => void;
 }
 
 const CardContext = createContext({} as CardContextType);
 
 export const CardProvider = ({ children }: { children: React.ReactNode }) => {
-  const [deckList, setDeckList] = useState<Subject[]>(sampleDeck);
+  const [deckList, setDeckList] = useState<any[]>([]);
   const [editorOpen, setEditorOpen] = useState(false);
-  const [editingFlashcard, setEditingFlashcard] = useState<Flashcard | null>(null);
+  const [editingFlashcard, setEditingFlashcard] = useState<Flashcard | null>(
+    null,
+  );
+
+  useEffect(() => {
+    loadDeck().then((item) => {
+      console.log(item);
+    });
+  }, []);
 
   const getSubjectByPath = useCallback(
     (path: string) => deckList.find((s) => s.path === path),
-    [deckList]
+    [deckList],
   );
 
   const getTopicByPath = useCallback(
@@ -41,7 +57,7 @@ export const CardProvider = ({ children }: { children: React.ReactNode }) => {
       const subject = deckList.find((s) => s.path === subjectPath);
       return subject?.topics.find((t) => t.path === topicPath);
     },
-    [deckList]
+    [deckList],
   );
 
   const openEditor = useCallback((flashcard: Flashcard) => {
@@ -80,37 +96,42 @@ export const CardProvider = ({ children }: { children: React.ReactNode }) => {
               ...topic,
               updatedAt: new Date(),
               flashcards: exists
-                ? topic.flashcards.map((f) => (f.id === flashcard.id ? updated : f))
+                ? topic.flashcards.map((f) =>
+                    f.id === flashcard.id ? updated : f,
+                  )
                 : [...topic.flashcards, updated],
             };
           }),
-        }))
+        })),
       );
       closeEditor();
     },
-    [closeEditor]
+    [closeEditor],
   );
 
-  const deleteFlashcard = useCallback((flashcardId: number, topicId: number) => {
-    setDeckList((prev) =>
-      prev.map((subject) => ({
-        ...subject,
-        topics: subject.topics.map((topic) => {
-          if (topic.id !== topicId) return topic;
-          return {
-            ...topic,
-            updatedAt: new Date(),
-            flashcards: topic.flashcards.filter((f) => f.id !== flashcardId),
-          };
-        }),
-      }))
-    );
-  }, []);
+  const deleteFlashcard = useCallback(
+    (flashcardId: number, topicId: number) => {
+      setDeckList((prev) =>
+        prev.map((subject) => ({
+          ...subject,
+          topics: subject.topics.map((topic) => {
+            if (topic.id !== topicId) return topic;
+            return {
+              ...topic,
+              updatedAt: new Date(),
+              flashcards: topic.flashcards.filter((f) => f.id !== flashcardId),
+            };
+          }),
+        })),
+      );
+    },
+    [],
+  );
 
   const addTopic = useCallback(
     (
       subjectId: number,
-      topicData: Omit<Topic, "id" | "createdAt" | "updatedAt" | "flashcards">
+      topicData: Omit<Topic, "id" | "createdAt" | "updatedAt" | "flashcards">,
     ) => {
       const newTopic: Topic = {
         ...topicData,
@@ -121,15 +142,17 @@ export const CardProvider = ({ children }: { children: React.ReactNode }) => {
       };
       setDeckList((prev) =>
         prev.map((s) =>
-          s.id === subjectId ? { ...s, topics: [...s.topics, newTopic] } : s
-        )
+          s.id === subjectId ? { ...s, topics: [...s.topics, newTopic] } : s,
+        ),
       );
     },
-    []
+    [],
   );
 
   const addSubject = useCallback(
-    (subjectData: Omit<Subject, "id" | "createdAt" | "updatedAt" | "topics">) => {
+    (
+      subjectData: Omit<Subject, "id" | "createdAt" | "updatedAt" | "topics">,
+    ) => {
       const newSubject: Subject = {
         ...subjectData,
         id: Date.now(),
@@ -139,7 +162,7 @@ export const CardProvider = ({ children }: { children: React.ReactNode }) => {
       };
       setDeckList((prev) => [...prev, newSubject]);
     },
-    []
+    [],
   );
 
   return (
